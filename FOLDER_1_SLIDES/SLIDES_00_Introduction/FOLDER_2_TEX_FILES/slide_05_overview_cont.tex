@@ -1,0 +1,105 @@
+% !TEX root = ../slides.tex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Frame Open :: Overview %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\frametitle{Overview (cont)}
+
+%%%%%%%%%%%%%%%%%
+% Itemize begin %
+%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Backend :: From IR to machine code %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item \textit{Backend} handles the steps from IR to \textit{destination} language
+
+%%%%%%%%%%%%%%%%%
+% Itemize begin %
+%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Intermediate Representation %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item \textit{Intermediate Representation} (IR) simple example
+
+%%%%%%%%%%%%%%%%%
+% Itemize begin %
+%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Intermediate Representation %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item \fbox{int i=1+2+3} $\rightarrow$ \fbox{int temp=1+2; int i=temp+3}
+\item Compiler-dependent
+\item Contains everything needed for translation to machine code
+\item IR features ideally \textit{independent of src language}
+\item IR features ideally \textit{independent of dst language}
+
+%%%%%%%%%%%%%%%
+% Itemize end %
+%%%%%%%%%%%%%%%
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%
+% Optimizations %
+%%%%%%%%%%%%%%%%%
+\item \textit{Optimizations}
+
+%%%%%%%%%%%%%%%%%
+% Itemize begin %
+%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%
+% Optimizations %
+%%%%%%%%%%%%%%%%%
+\item For example, \fbox{int i = 4+3} $\rightarrow$ \fbox{int i = 7}
+
+%%%%%%%%%%%%%%%
+% Itemize end %
+%%%%%%%%%%%%%%%
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%
+% Static checks %
+%%%%%%%%%%%%%%%%%
+\item \textit{Static checks}
+
+%%%%%%%%%%%%%%%%%
+% Itemize begin %
+%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%
+% Static Checks %
+%%%%%%%%%%%%%%%%%
+\item For example, int i = 8/0 $\rightarrow$ compilation error
+
+%%%%%%%%%%%%%%%
+% Itemize end %
+%%%%%%%%%%%%%%%
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Intermediate representation %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item \textit{Machine code generation}
+
+%%%%%%%%%%%%%%%
+% Itemize end %
+%%%%%%%%%%%%%%%
+\end{itemize}
+
+%%%%%%%%%%%%%%%
+% Itemize end %
+%%%%%%%%%%%%%%%
+\end{itemize}
+
+%%%%%%%%%%%%%%%
+% Frame Close %
+%%%%%%%%%%%%%%%
+}
