@@ -23,7 +23,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Intermediate Representation %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item \textit{Intermediate Representation} (IR) simple example
+\item \textit{Intermediate Representation} (IR)
 
 %%%%%%%%%%%%%%%%%
 % Itemize begin %
@@ -33,16 +33,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Intermediate Representation %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item \fbox{int i=1+2+3} $\rightarrow$ \fbox{int temp=1+2; int i=temp+3}
-\item Compiler-dependent
-\item Contains everything needed for translation to machine code
+\item Instead of direct \fbox{src $\rightarrow$ dst} translation, do \fbox{src $\rightarrow$ IR $\rightarrow$ dst}
+\item IR contains everything needed for translation to machine code
+\item IR is effective for handling \textit{multiple src and dst languages}
+\item Different compilers have different IRs
 \item IR features ideally \textit{independent of src language}
 \item IR features ideally \textit{independent of dst language}
+\item Designing a good IR is more art than science
 
 %%%%%%%%%%%%%%%
 % Itemize end %
 %%%%%%%%%%%%%%%
 \end{itemize}
+
+%%%%%%%%%%%
+% Example %
+%%%%%%%%%%%
+\item Example: \fbox{int i=1+2+3} $\rightarrow$ \fbox{int temp=1+2; int i=temp+3}
 
 %%%%%%%%%%%%%%%%%
 % Optimizations %
@@ -57,7 +64,7 @@
 %%%%%%%%%%%%%%%%%
 % Optimizations %
 %%%%%%%%%%%%%%%%%
-\item For example, \fbox{int i = 4+3} $\rightarrow$ \fbox{int i = 7}
+\item Example: \fbox{int i = 4+3} $\rightarrow$ \fbox{int i = 7}
 
 %%%%%%%%%%%%%%%
 % Itemize end %
@@ -77,7 +84,7 @@
 %%%%%%%%%%%%%%%%%
 % Static Checks %
 %%%%%%%%%%%%%%%%%
-\item For example, int i = 8/0 $\rightarrow$ compilation error
+\item Example: \fbox{int i = 8/0} $\rightarrow$ \fbox{compilation error}
 
 %%%%%%%%%%%%%%%
 % Itemize end %
