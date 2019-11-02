@@ -10,125 +10,83 @@
 %%%%%%%%%%%%%%%%%
 \begin{itemize}
 
-%%%%%%%%%%%
-% Item 01 %
-%%%%%%%%%%%
-\item There are four assignments and a final project
-
-%%%%%%%%%%%%%%%%%
-% Itemize begin %
-%%%%%%%%%%%%%%%%%
-\begin{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Appel :: modern complier implementation in Java %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item
-\href
-{https://www.amazon.com/Modern-Compiler-Implementation-Andrew-Appel/dp/052182060X}
-{modern complier implementation in Java} / Appel
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Appel :: modern complier implementation in Java %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item
-\href
-{https://www.amazon.com/Compilers-Principles-Techniques-Alfred-Aho-ebook/dp/B009TGD06W}
-{compilers: principles, techniques and tools} / Aho et al.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Appel :: modern complier implementation in Java %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item
-\href
-{https://www.amazon.com/Modern-Compiler-Design-Dick-Grune/dp/1461446988}
-{modern complier design} / Grune
-
-%%%%%%%%%%%%%%%
-% Itemize end %
-%%%%%%%%%%%%%%%
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Two open source modern compilers %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item Two open source modern compilers
-
-%%%%%%%%%%%%%%%%%
-% Itemize begin %
-%%%%%%%%%%%%%%%%%
-\begin{itemize}
-
-%%%%%%%
-% GCC %
-%%%%%%%
-\item Goog old \href{https://gcc.gnu.org/}{gcc}
-
-%%%%%%%%%%%%%%
-% LLVM/CLANG %
-%%%%%%%%%%%%%%
-\item Modern evil twin \href{https://clang.llvm.org/}{llvm/clang}
-
-%%%%%%%%%%%%%%%
-% Itemize end %
-%%%%%%%%%%%%%%%
-\end{itemize}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% MICROSOFT VISUAL STUDIO %
+% Front-ends and Backends %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item Propraietery compiler, but free and easy to use
+\item Compilers have \textit{front-ends} and \textit{backends}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Front-end :: Handling the source language %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item \textit{Front-end} handles the \textit{source} language, performing
 
 %%%%%%%%%%%%%%%%%
 % Itemize begin %
 %%%%%%%%%%%%%%%%%
 \begin{itemize}
-
-%%%%%%%%%%%%%%%%%
-% Visual Studio %
-%%%%%%%%%%%%%%%%%
-\item Microsoft \href{https://visualstudio.microsoft.com/vs/community/}{visual studio}
-
-%%%%%%%%%%%%%%%
-% Itemize end %
-%%%%%%%%%%%%%%%
-\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%
-% Online resources %
+% Lexical Analysis %
 %%%%%%%%%%%%%%%%%%%%
-\item Online resources 
+\item \textit{Lexical Analysis}
 
 %%%%%%%%%%%%%%%%%
 % Itemize begin %
 %%%%%%%%%%%%%%%%%
 \begin{itemize}
 
-%%%%%%%%%%%%%%%%%%
-% Stack OVerflow %
-%%%%%%%%%%%%%%%%%%
-\item Forums: \href{https://stackoverflow.com/}{stack overflow}
-
-%%%%%%%%%%%
-% Manuals %
-%%%%%%%%%%%
-\item RTFMs:
-\href{https://jflex.de/}{JFlex},
-\href{https://www.cs.princeton.edu/~appel/modern/java/CUP/}{CUP},
-\href{https://www.graphviz.org/}{Graphviz}, etc.
-
-%%%%%%%%%%%%%%%%%
-% Mailing lists %
-%%%%%%%%%%%%%%%%%
-\item Mailing lists:
-\href{https://lists.llvm.org/cgi-bin/mailman/listinfo/cfe-dev}{cfe-dev},
-\href{https://gcc.gnu.org/lists.html}{gcc-lists},
-\href{https://www.gnu.org/software/gdb/mailing-lists/}{gdb-lists}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Similar to how you would start translating a book from Spanish to Hebrew %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item Suppose you translate a book from Spanish to Hebrew
+\item How would you start?
+\item Scan the words one by one, and make sure they are all legal
+\item See how Google Docs does it too
+\href{https://docs.google.com/document/d/1c_le6W6c_oQmx3RZNY6Fy94SLXXQmJqbKYJ-FZTOWq4/edit?usp=sharing}{here}
 
 %%%%%%%%%%%%%%%
 % Itemize end %
 %%%%%%%%%%%%%%%
 \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%
+% Syntax Analysis %
+%%%%%%%%%%%%%%%%%%%
+\item \textit{Syntax Analysis}
+
+%%%%%%%%%%%%%%%%%
+% Itemize begin %
+%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%
+% Syntax Analysis %
+%%%%%%%%%%%%%%%%%%%
+\item Continue thinking about the Spanish to Hebrew analogy
+\item What to check next?
+\item Each sentence must have valid structure: subject, verb etc.
+\item Too hard for Google Docs to detect syntax errors
+\href{https://docs.google.com/document/d/1c_le6W6c_oQmx3RZNY6Fy94SLXXQmJqbKYJ-FZTOWq4/edit?usp=sharing}{here}
+
+%%%%%%%%%%%%%%%
+% Itemize end %
+%%%%%%%%%%%%%%%
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Semantic Analysis %
+%%%%%%%%%%%%%%%%%%%%%
+\item Semantic Analysis
+
+%%%%%%%%%%%%%%%
+% Itemize end %
+%%%%%%%%%%%%%%%
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Intermediate representation %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item Intermediate representation
 
 %%%%%%%%%%%%%%%
 % Itemize end %
