@@ -32,11 +32,12 @@ SLIDES = ${BASEDIR}/slides
 #########
 # FILES #
 #########
-#AUX_FILES += ${PAPER}.aux
+AUX_FILES += ${SLIDES}.aux
 AUX_FILES += ${SLIDES}.log
+AUX_FILES += ${SLIDES}.nav
 AUX_FILES += ${SLIDES}.out
-AUX_FILES += ${SLIDES}.bbl
-AUX_FILES += ${SLIDES}.blg
+AUX_FILES += ${SLIDES}.snm
+AUX_FILES += ${SLIDES}.toc
 
 ##################
 # DEFAULT TARGET #	
@@ -57,6 +58,6 @@ ${SLIDES}.pdf: ${SLIDES}.tex ${TEX_FILES}
 # clean #	
 #########
 clean:
-	@echo "rm -f $(notdir ${PAPER}.pdf)"
-	@rm -r ${PAPER}.pdf
+	@echo "rm -f $(notdir ${SLIDES}.pdf)"
+	@rm -r ${SLIDES}.pdf
 
