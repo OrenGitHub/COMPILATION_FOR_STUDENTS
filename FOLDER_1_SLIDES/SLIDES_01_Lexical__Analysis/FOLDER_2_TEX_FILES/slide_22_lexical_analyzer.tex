@@ -13,37 +13,43 @@
 %%%%%%%%%%%%%%%%%%%%
 % Lexical Analyzer %
 %%%%%%%%%%%%%%%%%%%%
-\item The input program is actually a long sentence
-
-%%%%%%%%%%%%%%%%%%%%
-% Lexical Analyzer %
-%%%%%%%%%%%%%%%%%%%%
-\item The lexical analyzer verifies each word is legal
-
-%%%%%%%%%%%%%%%%%%%%
-% Lexical Analyzer %
-%%%%%%%%%%%%%%%%%%%%
-\item When it encounters an illegal word, compilation stops
-
-%%%%%%%%%%%%%%%%%%%%
-% Lexical Analyzer %
-%%%%%%%%%%%%%%%%%%%%
 \item Recall the Google Docs lexical analyzer example
 \href{https://docs.google.com/document/d/1c_le6W6c_oQmx3RZNY6Fy94SLXXQmJqbKYJ-FZTOWq4/edit?usp=sharing}{here}
 
-%%%%%%%%%%%%%%%%%
-% Itemize begin %
-%%%%%%%%%%%%%%%%%
-\begin{itemize}
-
+%%%%%%%%%%%%%%%%%%%%
+% Lexical Analyzer %
+%%%%%%%%%%%%%%%%%%%%
 \item Why not do the same thing? simply keep a dictionary
-\item How many legal words are there in C (for instance)?
+
+%%%%%%%%%%%%%%%%%%%%
+% Lexical Analyzer %
+%%%%%%%%%%%%%%%%%%%%
+\item How many legal words are there (in C for instance)?
+
+%%%%%%%%%%%%%%%%%%%%
+% Lexical Analyzer %
+%%%%%%%%%%%%%%%%%%%%
 \item Is keeping a dictionary feasible?
 
-%%%%%%%%%%%%%%%
-% Itemize end %
-%%%%%%%%%%%%%%%
-\end{itemize}
+%%%%%%%%%%%%%%%%%%%%
+% Lexical Analyzer %
+%%%%%%%%%%%%%%%%%%%%
+\item So how should we specify legal words?
+
+%%%%%%%%%%%%%%%%%%%%
+% Lexical Analyzer %
+%%%%%%%%%%%%%%%%%%%%
+\item Specification must be clear for programmers to understand
+
+%%%%%%%%%%%%%%%%%%%%
+% Lexical Analyzer %
+%%%%%%%%%%%%%%%%%%%%
+\item Specification must enable a fast validity test for each word
+
+%%%%%%%%%%%%%%%%%%%%
+% Lexical Analyzer %
+%%%%%%%%%%%%%%%%%%%%
+\item The answer is regular expressions
 
 %%%%%%%%%%%%%%%
 % Itemize end %
