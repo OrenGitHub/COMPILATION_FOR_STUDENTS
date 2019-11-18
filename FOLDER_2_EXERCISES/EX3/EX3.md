@@ -5,7 +5,7 @@
 ##### Due Tuesday 18/11/2019
 
 ```java
-class Father { int i; int j; }
+class Father extends Grandfather { int i; int j; }
 int Check(Father f)
 {
 	if (f = nil)
