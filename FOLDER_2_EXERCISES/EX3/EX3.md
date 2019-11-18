@@ -17,41 +17,8 @@ int Check(Father f)
 }
 ```
 
-<table>
-<tr>
-<th>
-Status
-</th>
-<th>
-Response
-</th>
-</tr>
-
-<tr>
-
-<td>
-<pre>
-<br/><br/><br/>200<br/><br/><br/><br/><br/>400<br/>
-</pre>
-</td>
-
-<td>
-<pre>
-```cpp
-class Father { int i; int j; }
-int Check(Father f)
-{
-	if (f = nil)
-	{
-	    return 800;
-	}
-	    return 774;
-	}
-}
-```
-</pre>
-</td>
-
-</tr>
-</table>
-
+| CODE | STATUS |
+| ---- | ------ |
+```java
+class Father extends Grandfather { int i; int j; }
+``` | dsfposdfpo
