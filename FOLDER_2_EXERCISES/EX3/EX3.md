@@ -1,7 +1,7 @@
-# Exercise 1
+### Exercise 1
 
-## Compilation
+#### Compilation
 
-### Due Tuesday 18/11/2019
+##### Due Tuesday 18/11/2019
 
 
