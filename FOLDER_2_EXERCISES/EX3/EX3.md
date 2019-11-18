@@ -16,6 +16,20 @@ int Check(Father f)
 	}
 }
 ```
+```java
+class Father extends Grandfather { int i; int j; }
+int Check(Father f)
+{
+	if (f = nil)
+	{
+	    return 800;
+	}
+	    return 774;
+	}
+}
+```
+
+
 
 | CODE | STATUS |
 | ---- | ------ |
