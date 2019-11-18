@@ -4,7 +4,7 @@
 
 ##### Due Tuesday 18/11/2019
 
-```cpp
+```java
 class Father { int i; int j; }
 int Check(Father f)
 {
