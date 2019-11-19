@@ -1,4 +1,4 @@
-## Compilation, EX3, Due 15/12/2019
+## Compilation, Exercise 3, Due 15/12/2019 before 14:00
 
 ### Introduction
 We continue our journey of building a compiler for the
