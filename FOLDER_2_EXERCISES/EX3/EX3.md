@@ -1,8 +1,4 @@
-### Exercise 3
-
-### Compilation
-
-##### Due Tuesday 15/12/2019, until 14:00
+### Compilation :: Exercise 3 :: Due 15/12/2019
 
 #### Introduction
 We continue our journey of building a compiler for the
