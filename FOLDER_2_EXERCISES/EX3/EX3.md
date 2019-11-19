@@ -2,9 +2,9 @@
 
 #### Compilation
 
-##### Due Tuesday 15/12/2019, until 14:00
+#### Due Tuesday 15/12/2019, until 14:00
 
-1. Introduction
+##### Introduction
 We continue our journey of building a compiler for the
 invented object oriented language Poseidon.
 In order to make this document self contained,
