@@ -1,8 +1,14 @@
-### Exercise 1
+### Exercise 3
 
 #### Compilation
 
-##### Due Tuesday 18/11/2019
+##### Due Tuesday 15/12/2019, until 14:00
+
+1. Introduction
+We continue our journey of building a compiler for the
+invented object oriented language Poseidon.
+In order to make this document self contained,
+all the information needed to complete the third exercise is brought here.
 
 ```java
 class Father extends Grandfather { int i; int j; }
@@ -10,7 +16,7 @@ int Check(Father f)
 {
 	if (f = nil)
 	{
-	    return 800;
+	    return 333;
 	}
 	    return 774;
 	}
