@@ -1,6 +1,6 @@
-## Exercise 3
+### Exercise 3
 
-#### Compilation
+### Compilation
 
 ##### Due Tuesday 15/12/2019, until 14:00
 
