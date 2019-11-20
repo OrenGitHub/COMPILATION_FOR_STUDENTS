@@ -1,7 +1,7 @@
 # Compilation
-#### Exercise 3, Due 15/12/2019 before 14:00
+##### Exercise 3, Due 15/12/2019 before 14:00
 
-### Introduction
+## Introduction
 We continue our journey of building a compiler for the
 invented object oriented language Poseidon.
 In order to make this document self contained,
