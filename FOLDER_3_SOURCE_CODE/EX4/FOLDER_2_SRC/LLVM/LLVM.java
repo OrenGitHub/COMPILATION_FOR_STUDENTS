@@ -36,7 +36,8 @@ public class LLVM
 	public void print_int(TEMP t)
 	{
 		int idx=t.getSerialNumber();
-		fileWriter.format("  call void @PrintInt(i32 %% %Temp_%d)\n",idx);
+		fileWriter.format("shalom\n");
+		// fileWriter.format("  call void PrintInt(i32 %% %Temp_444)\n");
 	}
 
 	public void allocate(String var_name)
@@ -46,22 +47,22 @@ public class LLVM
 		fileWriter.format("; GLOBAL VARIABLE ;\n");
 		fileWriter.format(";                 ;\n");
 		fileWriter.format(";;;;;;;;;;;;;;;;;;;\n");
-		fileWriter.format("@%s: global i32 0, align 4\n\n",var_name);
+		fileWriter.format("@%s = global i32 0, align 4\n\n",var_name);
 	}
 	public void load(TEMP dst,String var_name)
 	{
 		int idxdst=dst.getSerialNumber();
-		fileWriter.format("\tlw Temp_%d,global_%s\n",idxdst,var_name);
+		fileWriter.format("  load Temp_%d,global_%s\n",idxdst,var_name);
 	}
 	public void store(String var_name,TEMP src)
 	{
 		int idxsrc=src.getSerialNumber();
-		fileWriter.format("\tsw Temp_%d,global_%s\n",idxsrc,var_name);		
+		fileWriter.format("  store Temp_%d,global_%s\n",idxsrc,var_name);		
 	}
 	public void li(TEMP t,int value)
 	{
 		int idx=t.getSerialNumber();
-		fileWriter.format("\tli Temp_%d,%d\n",idx,value);
+		fileWriter.format("  li Temp_%d,%d\n",idx,value);
 	}
 	public void add(TEMP dst,TEMP oprnd1,TEMP oprnd2)
 	{
@@ -198,6 +199,7 @@ public class LLVM
 			{
 				String dirname="./FOLDER_5_OUTPUT/";
 				String filename="LLVM_bitcode.ll";
+				assert(false);
 				instance.fileWriter = new PrintWriter(dirname+filename);
 			}
 			catch (Exception e)
@@ -210,7 +212,6 @@ public class LLVM
 			/***********************************/
 			instance.fileWriter.print("LLVM\n");
 			instance.fileWriter.print("{\n");
-			instance.fileWriter.print("gjjjj\n");
 		}
 		return instance;
 	}

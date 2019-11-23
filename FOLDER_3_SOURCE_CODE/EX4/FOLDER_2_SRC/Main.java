@@ -86,6 +86,7 @@ public class Main
 			/***********************************/
 			/* [12] Finalize LLVM bitcode file */
 			/***********************************/
+			assert(false);
 			LLVM.getInstance().finalizeFile();			
 
 			/***************************/
