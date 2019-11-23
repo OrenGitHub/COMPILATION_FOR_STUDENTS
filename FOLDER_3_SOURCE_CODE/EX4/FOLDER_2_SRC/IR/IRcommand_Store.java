@@ -11,6 +11,7 @@ package IR;
 /* PROJECT IMPORTS */
 /*******************/
 import TEMP.*;
+import LLVM.*;
 import MIPS.*;
 
 public class IRcommand_Store extends IRcommand
@@ -22,6 +23,14 @@ public class IRcommand_Store extends IRcommand
 	{
 		this.src      = src;
 		this.var_name = var_name;
+	}
+
+	/*******************/
+	/* LLVM bitcode me */
+	/*******************/
+	public void LLVM_bitcode_me()
+	{
+		LLVM.getInstance().store(var_name,src);
 	}
 	
 	/***************/

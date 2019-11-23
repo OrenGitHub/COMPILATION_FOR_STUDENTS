@@ -11,6 +11,7 @@ package IR;
 /* PROJECT IMPORTS */
 /*******************/
 import TEMP.*;
+import LLVM.*;
 import MIPS.*;
 
 public class IRcommand_PrintInt extends IRcommand
@@ -20,6 +21,14 @@ public class IRcommand_PrintInt extends IRcommand
 	public IRcommand_PrintInt(TEMP t)
 	{
 		this.t = t;
+	}
+
+	/*******************/
+	/* LLVM bitcode me */
+	/*******************/
+	public void LLVM_bitcode_me()
+	{
+		LLVM.getInstance().print_int(t);
 	}
 	
 	/***************/

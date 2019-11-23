@@ -36,12 +36,7 @@ public class LLVM
 	public void print_int(TEMP t)
 	{
 		int idx=t.getSerialNumber();
-		fileWriter.format("\tmove $a0,Temp_%d\n",idx);
-		fileWriter.format("\tli $v0,1\n");
-		fileWriter.format("\tsyscall\n");
-		fileWriter.format("\tli $a0,32\n");
-		fileWriter.format("\tli $v0,11\n");
-		fileWriter.format("\tsyscall\n");
+		fileWriter.format("  call void @PrintInt(i32 %% %Temp_%d)\n",idx);
 	}
 
 	public void allocate(String var_name)
