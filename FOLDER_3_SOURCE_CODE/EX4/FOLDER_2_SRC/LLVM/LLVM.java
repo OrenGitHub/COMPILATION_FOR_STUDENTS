@@ -52,12 +52,12 @@ public class LLVM
 	public void load(TEMP dst,String var_name)
 	{
 		int idxdst=dst.getSerialNumber();
-		fileWriter.format("  load Temp_%d,global_%s\n",idxdst,var_name);
+		fileWriter.format("  %%Temp_%d = load i32, i32* @%s, align 4\n",idxdst,var_name);
 	}
 	public void store(String var_name,TEMP src)
 	{
 		int idxsrc=src.getSerialNumber();
-		fileWriter.format("  store Temp_%d,global_%s\n",idxsrc,var_name);		
+		fileWriter.format("  store i32 Temp_%d, i32* @%s, align 4\n",idxsrc,var_name);		
 	}
 	public void li(TEMP t,int value)
 	{
@@ -116,8 +116,12 @@ public class LLVM
 	{
 		if (inlabel.equals("main"))
 		{
+			fileWriter.format(";;;;;;;;;;;;;;;;;;;;;;;\n");
+			fileWriter.format(";                     ;\n");
+			fileWriter.format("; ENTRY POINT :: main ;\n");
+			fileWriter.format(";                     ;\n");
+			fileWriter.format(";;;;;;;;;;;;;;;;;;;;;;;\n");
 			fileWriter.format("define dso_local i32 @main(i32 %%argc, i8** %%argv) {\nentry:\n");
-			fileWriter.format("%s:\n",inlabel);
 		}
 		else
 		{
@@ -126,7 +130,7 @@ public class LLVM
 	}	
 	public void jump(String inlabel)
 	{
-		fileWriter.format("br label %% %s\n",inlabel);
+		fileWriter.format("  br label %% %s\n",inlabel);
 	}	
 	public void blt(TEMP oprnd1,TEMP oprnd2,String label)
 	{
@@ -135,7 +139,7 @@ public class LLVM
 		
 		fileWriter.format("  %%oren = icmp eq i32 Temp_%d, 0\n",i1);
 		fileWriter.format("  br i1 %%oren, label %% %s, label %%any.label\n",label);
-		fileWriter.format("any.label:\n\n");
+		fileWriter.format("  \nany.label:\n\n");
 	}
 	public void bge(TEMP oprnd1,TEMP oprnd2,String label)
 	{
@@ -144,7 +148,7 @@ public class LLVM
 		
 		fileWriter.format("  %%oren = icmp eq i32 Temp_%d, 0\n",i1);
 		fileWriter.format("  br i1 %%oren, label %% %s, label %%any.label\n",label);
-		fileWriter.format("any.label:\n\n");
+		fileWriter.format("  \nany.label:\n\n");
 	}
 	public void bne(TEMP oprnd1,TEMP oprnd2,String label)
 	{
@@ -153,7 +157,7 @@ public class LLVM
 		
 		fileWriter.format("  %%oren = icmp eq i32 Temp_%d, 0\n",i1);
 		fileWriter.format("  br i1 %%oren, label %% %s, label %%any.label\n",label);
-		fileWriter.format("any.label:\n\n");
+		fileWriter.format("  \nany.label:\n\n");
 	}
 	public void beq(TEMP oprnd1,TEMP oprnd2,String label)
 	{
@@ -162,7 +166,7 @@ public class LLVM
 		
 		fileWriter.format("  %%oren = icmp eq i32 Temp_%d, 0\n",i1);
 		fileWriter.format("  br i1 %%oren, label %% %s, label %%any.label\n",label);
-		fileWriter.format("any.label:\n\n");
+		fileWriter.format("  \nany.label:\n\n");
 	}
 	public void beqz(TEMP oprnd1,String label)
 	{
@@ -170,7 +174,7 @@ public class LLVM
 
 		fileWriter.format("  %%oren = icmp eq i32 Temp_%d, 0\n",i1);
 		fileWriter.format("  br i1 %%oren, label %% %s, label %%any.label\n",label);
-		fileWriter.format("any.label:\n\n");
+		fileWriter.format("  \nany.label:\n\n");
 	}
 	
 	/**************************************/
