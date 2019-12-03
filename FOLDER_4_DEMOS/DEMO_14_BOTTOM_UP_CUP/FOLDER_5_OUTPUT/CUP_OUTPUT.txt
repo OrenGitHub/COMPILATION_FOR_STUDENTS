@@ -1,0 +1,147 @@
+===== Viable Prefix Recognizer =====
+START lalr_state [0]: {
+  [E ::= (*) INT , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E MINUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E DIVIDE E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E PLUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E TIMES E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [$START ::= (*) E EOF , {EOF }]
+}
+transition on INT to state [2]
+transition on E to state [1]
+
+-------------------
+lalr_state [1]: {
+  [E ::= E (*) MINUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) DIVIDE E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) PLUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) TIMES E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [$START ::= E (*) EOF , {EOF }]
+}
+transition on TIMES to state [7]
+transition on EOF to state [6]
+transition on DIVIDE to state [5]
+transition on MINUS to state [4]
+transition on PLUS to state [3]
+
+-------------------
+lalr_state [2]: {
+  [E ::= INT (*) , {EOF PLUS MINUS TIMES DIVIDE }]
+}
+
+-------------------
+lalr_state [3]: {
+  [E ::= (*) INT , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E MINUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E PLUS (*) E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E DIVIDE E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E PLUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E TIMES E , {EOF PLUS MINUS TIMES DIVIDE }]
+}
+transition on INT to state [2]
+transition on E to state [11]
+
+-------------------
+lalr_state [4]: {
+  [E ::= E MINUS (*) E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) INT , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E MINUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E DIVIDE E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E PLUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E TIMES E , {EOF PLUS MINUS TIMES DIVIDE }]
+}
+transition on INT to state [2]
+transition on E to state [10]
+
+-------------------
+lalr_state [5]: {
+  [E ::= (*) INT , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E MINUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E DIVIDE (*) E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E DIVIDE E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E PLUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E TIMES E , {EOF PLUS MINUS TIMES DIVIDE }]
+}
+transition on INT to state [2]
+transition on E to state [9]
+
+-------------------
+lalr_state [6]: {
+  [$START ::= E EOF (*) , {EOF }]
+}
+
+-------------------
+lalr_state [7]: {
+  [E ::= (*) INT , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E MINUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E DIVIDE E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E PLUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E TIMES (*) E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= (*) E TIMES E , {EOF PLUS MINUS TIMES DIVIDE }]
+}
+transition on INT to state [2]
+transition on E to state [8]
+
+-------------------
+lalr_state [8]: {
+  [E ::= E (*) MINUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) DIVIDE E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) PLUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E TIMES E (*) , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) TIMES E , {EOF PLUS MINUS TIMES DIVIDE }]
+}
+transition on TIMES to state [7]
+transition on DIVIDE to state [5]
+transition on MINUS to state [4]
+transition on PLUS to state [3]
+
+-------------------
+lalr_state [9]: {
+  [E ::= E (*) MINUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E DIVIDE E (*) , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) DIVIDE E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) PLUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) TIMES E , {EOF PLUS MINUS TIMES DIVIDE }]
+}
+transition on TIMES to state [7]
+transition on DIVIDE to state [5]
+transition on MINUS to state [4]
+transition on PLUS to state [3]
+
+-------------------
+lalr_state [10]: {
+  [E ::= E (*) MINUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) DIVIDE E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) PLUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) TIMES E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E MINUS E (*) , {EOF PLUS MINUS TIMES DIVIDE }]
+}
+transition on TIMES to state [7]
+transition on DIVIDE to state [5]
+transition on MINUS to state [4]
+transition on PLUS to state [3]
+
+-------------------
+lalr_state [11]: {
+  [E ::= E (*) MINUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E PLUS E (*) , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) DIVIDE E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) PLUS E , {EOF PLUS MINUS TIMES DIVIDE }]
+  [E ::= E (*) TIMES E , {EOF PLUS MINUS TIMES DIVIDE }]
+}
+transition on TIMES to state [7]
+transition on DIVIDE to state [5]
+transition on MINUS to state [4]
+transition on PLUS to state [3]
+
+-------------------
+------- CUP v0.11b 20160615 (GIT 4ac7450) Parser Generation Summary -------
+  0 errors and 0 warnings
+  9 terminals, 1 non-terminal, and 6 productions declared, 
+  producing 12 unique parse states.
+  2 terminals declared but not used.
+  0 non-terminals declared but not used.
+  0 productions never reduced.
+  0 conflicts detected (0 expected).
+  Code written to "Parser.java", and "TokenNames.java".
+---------------------------------------------------- (CUP v0.11b 20160615 (GIT 4ac7450))

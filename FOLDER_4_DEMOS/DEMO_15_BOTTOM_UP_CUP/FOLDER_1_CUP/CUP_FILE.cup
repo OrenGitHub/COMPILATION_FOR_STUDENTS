@@ -1,0 +1,95 @@
+/*************/
+/* IMPORT(S) */
+/*************/
+import java_cup.runtime.*;
+
+parser code 
+{:
+	public Lexer lexer;
+
+	public Parser(Lexer lexer)
+	{
+		super(lexer);
+		this.lexer = lexer;
+	}
+	public void report_error(String message, Object info)
+	{
+		System.out.print("ERROR >> ");		
+		System.out.print("[");
+		System.out.print(lexer.getLine());
+		System.out.print(":");
+		System.out.print(lexer.getCharPos());
+		System.out.print("] ");		
+		System.exit(0);
+	}
+:}
+
+/************************/
+/* CUSTOMIZE CUP PARSER */
+/************************/
+scan with
+{:
+	Symbol s;
+	s = lexer.next_token();
+	//System.out.print(s.sym);
+	//System.out.print("[");
+	//System.out.print(lexer.getLine());
+	//System.out.print(":");
+	//System.out.print(lexer.getCharPos());
+	//System.out.print("] ");
+	System.out.print(TokenNames.terminalNames[s.sym]);
+	if (s.value != null)
+	{
+		System.out.print("( ");
+		System.out.print(s.value);
+		System.out.print(" )");
+	}
+	System.out.print(" ");
+	return s; 
+:};
+
+/*************/
+/* TERMINALS */
+/*************/
+terminal PLUS;
+terminal MINUS;
+terminal TIMES;
+terminal DIVIDE;
+terminal LPAREN;
+terminal RPAREN;
+
+/*************/
+/* TERMINALS */
+/*************/
+terminal Integer INT;
+
+/*****************/
+/* NON TERMINALS */
+/*****************/
+non terminal Integer E;
+
+/***********************/
+/* OPERATOR PRECEDENCE */
+/***********************/
+precedence left MINUS;
+precedence left PLUS;
+precedence left TIMES;
+precedence left DIVIDE;
+
+/*****************/
+/* START WITH: E */
+/*****************/
+start with E;
+
+/********************/
+/* DERIVATION RULES */
+/********************/
+
+E	::=
+E:e1 PLUS   E:e2	{: RESULT = e1+e2; :} |
+E:e1 MINUS  E:e2	{: RESULT = e1-e2; :} |
+E:e1 TIMES  E:e2	{: RESULT = e1*e2; :} |
+E:e1 DIVIDE E:e2	{: RESULT = e1/e2; :} |
+INT:i				{: RESULT = i;     :} ;
+
+

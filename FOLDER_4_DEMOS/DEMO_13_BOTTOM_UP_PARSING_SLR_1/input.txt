@@ -1,0 +1,10 @@
+thirty := 30
+
+
+
+forty  := 40
+fifty :=                         (50)
+
+
+
+3+4*6 + thirty + forty + fifty
