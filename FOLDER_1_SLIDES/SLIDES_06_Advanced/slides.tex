@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                        %
+% document class: beamer %
+%                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{beamer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           %
+% abs/rel path input macros %
+%                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\texinput}[1]{\input{FOLDER_0_TEX_FILES/#1}}
+\newcommand{\figinput}[1]{\input{FOLDER_1_FIG_FILES/#1}}
+\newcommand{\codinput}[1]{\input{FOLDER_2_CODEFILES/#1}}
+
+%%%%%%%%%%%%
+%          %
+% packages %
+%          %
+%%%%%%%%%%%%
+\texinput{packages}
+
+%%%%%%%%%%
+%        %
+% macros %
+%        %
+%%%%%%%%%%
+\texinput{macros}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%                    %
+% beamer definitions %
+%                    %
+%%%%%%%%%%%%%%%%%%%%%%
+\texinput{beamerdefs}
+
+%%%%%%%%%%%%%%%%%%
+%                %
+% begin document %
+%                %
+%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%
+%       %
+% title %
+%       %
+%%%%%%%%%
+\title{Software Verification}
+
+%%%%%%%%%%%%%
+%           %
+% sub title %
+%           %
+%%%%%%%%%%%%%
+\author{Static $\longleftrightarrow$ Dynamic, Manual $\longleftrightarrow$ Automatic}
+
+%%%%%%%%%%%
+%         %
+% authors %
+%         %
+%%%%%%%%%%%
+\texinput{authors}
+
+%%%%%%%%%
+%       %
+% title %
+%       %
+%%%%%%%%%
+\frame{\titlepage} 
+
+%%%%%%%%%%
+%        %
+% slides %
+%        %
+%%%%%%%%%%
+\texinput{slide_01_introduction}
+\texinput{slide_02_the_right_PL_for_the_job}
+\texinput{slide_03_coq_proof}
+
+%%%%%%%%%%%%%%%%
+%              %
+% end document %
+%              %
+%%%%%%%%%%%%%%%%
+\end{document}
+

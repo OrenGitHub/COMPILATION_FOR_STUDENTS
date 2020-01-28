@@ -85,9 +85,11 @@ Qed.
 (* division with quotient and remainder *)
 (****************************************)
 Definition div_q_r: forall n m : nat,
-   {     q:nat & {     r:nat | (n = q * (S m) + r) /\ (r < (S m))}}.
+  { q:nat & { r:nat |
+  (n = q * (S m) + r) /\ (r < (S m))}}.
 Proof.
   induction n as [|n' IHn'].
+  (* rest of proof ... *)
   - exists 0. exists 0. split. reflexivity. apply Sn_gt_0.
   - intros m0.
     destruct m0 as [|m0''] eqn:E1.
@@ -133,4 +135,4 @@ Extract Inductive Datatypes.nat => "Prelude.Integer" ["0" "Prelude.succ"]
 (***************************)
 (* Extract to Haskell file *)
 (***************************)
-Extraction "/home/oren/GIT/CoqIt/FOLDER_2_PRESENTATION/FOLDER_2_EXAMPLES/EXAMPLE_06_Discarding_Proofs_Haskell.hs" div_q_r.
+Extraction "/home/oren/GIT/COMPILATION_FOR_STUDENTS/FOLDER_1_SLIDES/SLIDES_06_Advanced/FOLDER_7_HSKLFILES/Code_01_div_q_r.hs" div_q_r.
