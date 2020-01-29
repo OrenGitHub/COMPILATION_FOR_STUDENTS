@@ -8,24 +8,28 @@ BASEDIR = $(shell pwd)
 ###############
 TEX_DIR = ${BASEDIR}/FOLDER_0_TEX_FILES
 FIG_DIR = ${BASEDIR}/FOLDER_1_FIG_FILES
-CODEDIR = ${BASEDIR}/FOLDER_2_CODEFILES
+COQ_DIR = ${BASEDIR}/FOLDER_2_COQ_FILES
 IMG_DIR = ${BASEDIR}/FOLDER_3_IMG_FILES
 DOT_DIR = ${BASEDIR}/FOLDER_4_DOT_FILES
 FUZZDIR = ${BASEDIR}/FOLDER_5_FUZZFILES
 SYMXDIR = ${BASEDIR}/FOLDER_6_SYMXFILES
+HSKLDIR = ${BASEDIR}/FOLDER_7_HSKLFILES
+DFNYDIR = ${BASEDIR}/FOLDER_8_DFNYFILES
 
 #########
 # FILES #
 #########
 TEX_FILES = $(wildcard ${TEX_DIR}/*.tex)
 FIG_FILES = $(wildcard ${FIG_DIR}/*.tex)
-CODEFILES = $(wildcard ${CODEDIR}/*.tex)
+COQ_FILES = $(wildcard ${COQ_DIR}/*.v)
+HSKLFILES = $(addprefix ${HSKLDIR}/,$(notdir $(COQ_FILES:.v=.hs)))
 DOT_FILES = $(wildcard ${DOT_DIR}/*.dot)
-IMG_FILES = $(addprefix ${IMG_DIR}/,$(notdir $(DOT_FILES:.dot=.png)))
+IMG_FILES = $(wildcard ${IMG_DIR}/*.png)
 FUZCFILES = $(wildcard ${FUZZDIR}/*.c)
 FUZTFILES = $(FUZCFILES:.c=.txt)
 SYMCFILES = $(wildcard ${SYMXDIR}/*.c)
 SYMTFILES = $(SYMCFILES:.c=.csv)
+DFNYFILES = $(wildcard ${DFNYDIR}/*.dfy)
 
 #########
 # FILES #
@@ -84,19 +88,11 @@ SLIDES = ${BASEDIR}/slides
 ${SLIDES}.pdf: \
 ${SLIDES}.tex  \
 ${TEX_FILES}   \
-${FIG_FILES}   \
-${CODEFILES}   \
+${HSKLFILES}   \
 ${IMG_FILES}
 	@echo "[ 5 ] *.tex -> $(notdir $@)"
 	@pdflatex ${PDLATEX_FLAGS} $< #1>/dev/null
 	@rm ${AUX_FILES}
-
-######################
-# [0] *.dot -> *.png #
-######################
-${IMG_DIR}/%.png: ${DOT_DIR}/%.dot
-	@echo "[ 0 ] $(notdir $<) -> $(notdir $@)"
-	dot -Tpng -o$@ $<
 
 #####################
 # [1] *.c -> *.fuzz #
@@ -139,16 +135,79 @@ ${SYMXDIR}/%.csv: ${SYMXDIR}/%.bc
 	@TIME=$$(echo "$$END - $$START" | bc)
 	@printf '%s, %s, %s\n' $$example_name $$status $$TIME > $@
 
-############################
-# [4] *.csv -> results.csv #
-############################
-${SYMXDIR}/results.csv: ${KLETFILES}
-	@echo "[ 4 ] *.csv -> $(notdir $@)"
-	@echo "SMP Name, Status, Time (seconds)" > $@
-	@cat $^ >> $@
+.ONESHELL:
+###################
+# [4] *.v -> *.hs #
+###################
+${HSKLDIR}/Code_01_div_q_r.hs: \
+${COQ_DIR}/Code_01_div_q_r.v
+	@echo "[ 5 ] $(notdir $<) -> $(notdir $@)"
+	@coqc $< >/dev/null
+	@resize -s 8 70
+	@clear
+	@setterm -term linux -fore blue
+	@echo "\033[1m\$$ sed -n '87,92p;93q' $(notdir $<)\033[0m"
+	@setterm -term linux -fore white
+	@sed -n '87,92p;93q' $<
+	@gnome-screenshot -w -f /tmp/figure.png
+	@mv /tmp/figure.png ${IMG_DIR}/Code_01_div_q_r_coq.png
+	@resize -s 6 70
+	@clear
+	@setterm -term linux -fore blue
+	@echo "\033[1m\$$ sed -n '26,28p;29q' $(notdir $@)\033[0m"
+	@setterm -term linux -fore white
+	@sed -n '26,28p;29q' $@
+	@gnome-screenshot -w -f /tmp/figure.png
+	@mv /tmp/figure.png ${IMG_DIR}/Code_01_div_q_r_hs.png
+	@resize -s 32 70
+	@clear
+	@setterm -term linux -fore blue
+	@echo "\033[1m\$$ sed -n '87,116p;117q' $(notdir $<) | egrep --color 'exists|\$$'\033[0m"
+	@setterm -term linux -fore white
+	@sed -n '87,116p;117q' $< | egrep --color 'exists|$$'
+	@gnome-screenshot -w -f /tmp/figure.png
+	@mv /tmp/figure.png ${IMG_DIR}/Code_01_div_q_r_coq_whole.png
+	@resize -s 20 70
+	@clear
+	@setterm -term linux -fore blue
+	@echo "\033[1m\$$ sed -n '26,40p;41q' $(notdir $@) | egrep --color 'exists|\$$'\033[0m"
+	@setterm -term linux -fore white
+	@sed -n '26,40p;41q' $@ | egrep --color 'ExistT|$$'
+	@gnome-screenshot -w -f /tmp/figure.png
+	@mv /tmp/figure.png ${IMG_DIR}/Code_01_div_q_r_hs_whole.png
+
+######################
+# [5] *.dfy -> *.png #
+######################
+${IMG_DIR}/Code_02_max.png: \
+${DFNYDIR}/max.dfy
+	@echo "[ 6 ] $(notdir $<) -> $(notdir $@)"
+	@resize -s 22 70
+	@clear
+	@setterm -term linux -fore blue
+	@echo "\033[1m\$$ sed -n '1,19p;20q' $(notdir $<)         | egrep --color 'invariant|requires|ensures\$$'\033[0m"
+	@setterm -term linux -fore white
+	@sed -n '1,19p;20q' $< | egrep --color 'invariant|requires|ensures|$$'
+	@gnome-screenshot -w -f /tmp/figure.png
+	@mv /tmp/figure.png ${IMG_DIR}/Code_02_max.png
+
+.ONESHELL:
+######################
+# [5] *.dfy -> *.png #
+######################
+${IMG_DIR}/Code_02_max_inv.png: \
+${DFNYDIR}/Code_02_max.dfy
+	@resize -s 22 70
+	@clear
+	@setterm -term linux -fore blue
+	@echo "\033[1m\$$ sed -n '1,19p;20q' $(notdir $<) | egrep --color 'invariant|requires|ensures\$$'\033[0m"
+	@setterm -term linux -fore white
+	@sed -n '1,19p;20q' $< | egrep --color 'invariant|requires|ensures|$$'
+	@gnome-screenshot -w -f /tmp/figure.png
+	@mv /tmp/figure.png ${IMG_DIR}/Code_02_max_inv.png
 
 #########
-# clean #	
+# clean #
 #########
 clean:
 	@echo "rm -f $(notdir ${SLIDES}.pdf)"
