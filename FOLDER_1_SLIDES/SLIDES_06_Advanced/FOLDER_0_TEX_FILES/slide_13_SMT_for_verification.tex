@@ -1,0 +1,174 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         %
+%          ROOT           %
+%                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TEX root = ../slides.tex
+
+%%%%%%%%%%%%%%%
+%             %
+% frame begin %
+%             %
+%%%%%%%%%%%%%%%
+\begin{frame}
+
+%%%%%%%%%%%%%%%
+%             %
+% frame title %
+%             %
+%%%%%%%%%%%%%%%
+\frametitle{SMT for Verification}
+
+%%%%%%%%%%%%%%%%%
+%               %
+% itemize begin %
+%               %
+%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                          %
+% [1] Inductive Invariants %
+%                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item<1-> Inductive invariants
+
+%%%%%%%%%%%%%%%%%
+%               %
+% itemize begin %
+%               %
+%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%
+%                  %
+% [1.i] pre => inv %
+%                  %
+%%%%%%%%%%%%%%%%%%%%
+\item pre-conditions $\Rightarrow$ invariants
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                           %
+% [1.ii] invariants iteration i => invariants iteration i+1 %
+%                                                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item invariants at iter i $\Rightarrow$ invariants at iter i+1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% [1.iii] natural numbers with addition %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item exit loop $\Rightarrow$ post-conditions
+
+%%%%%%%%%%%%%%%
+%             %
+% itemize end %
+%             %
+%%%%%%%%%%%%%%%
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                %
+% [2] Three distinct SMT queries %
+%                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item<2-> Three distinct SMT queries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         %
+% [3] Dafny -> SMT solver %
+%                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item<3-> Dafny $\longrightarrow$ SMT
+
+%%%%%%%%%%%%%%%%%
+%               %
+% itemize begin %
+%               %
+%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%                     %
+% [2.i] program state %
+%                     %
+%%%%%%%%%%%%%%%%%%%%%%%
+\item extracting the program state
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            %
+% [2.ii] transition relation %
+%                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item transition relation
+
+%%%%%%%%%%%%%%%%%
+%               %
+% [2.iii] dafny %
+%               %
+%%%%%%%%%%%%%%%%%
+\item dafny language
+
+%%%%%%%%%%%%%%%
+%             %
+% itemize end %
+%             %
+%%%%%%%%%%%%%%%
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%
+%                %
+% [3] Properties %
+%                %
+%%%%%%%%%%%%%%%%%%
+\item<3-> Why not automate?
+
+%%%%%%%%%%%%%%%%%
+%               %
+% itemize begin %
+%               %
+%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         %
+% [3.i] generate-and-test %
+%                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item generate and test
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             %
+% [3.ii] search space is huge %
+%                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item search space is huge
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         %
+% [3.iii] active research %
+%                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item active research field
+
+%%%%%%%%%%%%%%%
+%             %
+% itemize end %
+%             %
+%%%%%%%%%%%%%%%
+\end{itemize}
+
+%%%%%%%%%%%%%%%
+%             %
+% itemize end %
+%             %
+%%%%%%%%%%%%%%%
+\end{itemize}
+
+%%%%%%%%%%%%%
+%           %
+% frame end %
+%           %
+%%%%%%%%%%%%%
+\end{frame}
